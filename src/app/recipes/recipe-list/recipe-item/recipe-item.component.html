@@ -1,0 +1,14 @@
+<md-card
+  style="cursor: pointer;"
+  [routerLink]="[index]"
+  routerLinkActive="active">
+  <md-card-header>
+    <img
+      [src]="recipe.imagePath"
+      alt="{{ recipe.name }}"
+      class="img-responsive"
+      fxFlex="80">
+    <h4 fxFlex="20">{{ recipe.name }}</h4>
+  </md-card-header>
+  <!--<p>{{ recipe.description }}</p>-->
+</md-card>

@@ -1,0 +1,68 @@
+
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <div class="example-full-width buttons">
+          <button md-raised-button [disabled]="!recipeForm.valid" color="primary">Save</button>
+          <button md-raised-button (click)="onCancel()" color="warn">Cancel</button>
+      </div>
+      <md-form-field class="example-full-width">
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              mdInput
+              placeholder="Name">
+      </md-form-field>
+      <md-form-field class="example-full-width">
+            <input
+              type="text"
+              id="imagePath"
+              formControlName="imagePath"
+              mdInput
+              placeholder="Image URL"
+              #imagePath>
+      </md-form-field>
+      <div class="example-full-width">
+          <img [src]="imagePath.value" class="img-responsive">
+      </div>
+      <md-form-field class="example-full-width">
+            <textarea
+              type="text"
+              id="description"
+              mdInput
+              placeholder="Description"
+              formControlName="description"
+              rows="6"></textarea>
+      </md-form-field>
+      <div class="example-full-width">
+        <div formArrayName="ingredients">
+          <div
+            class="example-full-width"
+            *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index"
+            [formGroupName]="i"
+            style="margin-top: 10px;">
+            <md-form-field class="col-xs-8">
+              <input
+                type="text"
+                mdInput
+                formControlName="name">
+            </md-form-field>
+            <md-form-field class="col-xs-2">
+              <input
+                type="number"
+                mdInput
+                formControlName="amount">
+            </md-form-field>
+            <div class="col-xs-2">
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="onDeleteIngredient(i)">X</button>
+            </div>
+          </div>
+          <hr>
+          <div class="example-full-width">
+              <button md-raised-button (click)="onAddIngredient()" color="primary">Add Ingredient</button>
+          </div>
+        </div>
+      </div>
+    </form>

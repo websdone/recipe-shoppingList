@@ -1,0 +1,45 @@
+    <h4> Add ingredients to the shopping list</h4>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <md-form-field class="example-full-width">
+          <input
+            mdInput
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            ngModel
+            required>
+        </md-form-field>
+        <md-form-field class="example-full-width">
+          <input
+            mdInput
+            type="number"
+            id="amount"
+            name="amount"
+            ngModel
+            required
+            placeholder="Amount"
+            pattern="^[1-9]+[0-9]*$" >
+        </md-form-field>
+
+        <div class="example-full-width">
+          <button
+            md-raised-button
+            type="submit"
+            color="primary"
+            [disabled]="!f.valid">{{ editMode ? 'Update' : 'Add' }}</button>
+
+          <button
+            md-raised-button
+            type="button"
+            (click)="onDelete()"
+            color="warn"
+            *ngIf="editMode">Delete</button>
+
+          <button
+            md-raised-button
+            type="button"
+            (click)="onClear()">Clear</button>
+        </div>
+    </form>
+
