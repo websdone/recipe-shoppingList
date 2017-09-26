@@ -2,7 +2,7 @@
     <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
       <div class="example-full-width buttons">
           <button md-raised-button [disabled]="!recipeForm.valid" color="primary">Save</button>
-          <button md-raised-button (click)="onCancel()" color="warn">Cancel</button>
+          <button md-raised-button (click)="onCancel()" color="accent">Cancel</button>
       </div>
       <md-form-field class="example-full-width">
             <input
