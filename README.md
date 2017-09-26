@@ -1,6 +1,6 @@
 # recipe-shoppingList
 
-Small app to add favourite recipes and ingredients to the shopping list
+Small app to view, add, delete or modify favourite recipes and to add ingredients to the shopping list
 
 Still under development and will add more features
 
