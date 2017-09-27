@@ -1,6 +1,7 @@
 
 .example-full-width {
   width: 100%;
+  clear: both;
 }
 .buttons {
   margin-bottom: 20px;
