@@ -5,6 +5,10 @@ import { Subscription } from 'rxjs/Subscription';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 
+import { Response } from '@angular/http';
+
+import { DataStorageService } from '../../shared/data-storage.service';
+
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
@@ -16,7 +20,8 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   constructor(private recipeService: RecipeService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private dataStorageService: DataStorageService) {
   }
 
   ngOnInit() {
@@ -35,5 +40,17 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  onSaveData(){
+    this.dataStorageService.storeRecipes()
+      .subscribe(
+        (response: Response) => {
+          console.log(response);
+        }
+      );
+  }
+  onFetchData(){
+    this.dataStorageService.getRecipes();
   }
 }

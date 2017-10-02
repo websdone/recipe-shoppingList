@@ -1,5 +1,8 @@
 
 <button md-raised-button (click)="onNewRecipe()" color="primary"> New Recipe </button>
+<button md-button (click)="onSaveData()">Save Data</button>
+<button md-button (click)="onFetchData()">Fetch Data</button>
+
 <hr>
 <app-recipe-item
   *ngFor="let recipeEl of recipes; let i = index"

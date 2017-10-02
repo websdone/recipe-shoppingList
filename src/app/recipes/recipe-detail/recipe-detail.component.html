@@ -1,5 +1,5 @@
 
-<md-card class="example-card">
+<md-card>
   <md-card-header>
     <md-card-title> <h1> {{ recipe.name }} </h1> </md-card-title>
     <md-card-subtitle> <h2> {{ recipe.description }} </h2> </md-card-subtitle>
@@ -21,21 +21,6 @@
   <md-card-actions>
     <div class="row">
       <div class="col-xs-12">
-        <!--<div-->
-          <!--appDropdown>-->
-          <!--<button-->
-            <!--type="button"-->
-            <!--color="primary"-->
-            <!--md-raised-button>-->
-            <!--Manage Recipe <span class="caret"></span>-->
-          <!--</button>-->
-          <!--<ul class="dropdown-menu">-->
-            <!--<li><a (click)="onAddToShoppingList()">To Shopping List</a></li>-->
-            <!--<li><a style="cursor: pointer;" (click)="onEditRecipe()">Edit Recipe</a></li>-->
-            <!--<li><a style="cursor: pointer;" (click)="onDeleteRecipe()">Delete Recipe</a></li>-->
-          <!--</ul>-->
-        <!--</div>-->
-      <!--</div>-->
         <button md-raised-button color="primary" [mdMenuTriggerFor]="menu">Manage Recipe</button>
         <md-menu #menu="mdMenu">
           <button md-menu-item (click)="onAddToShoppingList()">To Shopping List</button>
